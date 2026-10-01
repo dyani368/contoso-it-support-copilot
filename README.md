@@ -128,5 +128,4 @@ pac solution pack \
 
 **Dyaneshwar Mangesh Hawal**  
 *Computer and Communication Engineering, Manipal Institute of Technology (MAHE)*  
-* LinkedIn: [linkedin.com/in/dyaneshwar-hawal](https://linkedin.com)  
 * GitHub: [@dyani368](https://github.com/dyani368)
