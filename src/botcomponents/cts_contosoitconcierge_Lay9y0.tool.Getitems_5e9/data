@@ -1,0 +1,15 @@
+kind: ConnectorTool
+authMode: Invoker
+connectionReference: cts_contosoitconcierge_Lay9y0.cr.shared_sharepointonline
+connectorId: /providers/Microsoft.PowerApps/apis/shared_sharepointonline
+operationId: GetItems
+toolInputs:
+  - name: dataset
+    value:
+      kind: ContextVariableReference
+      name: GetEmployeeAssets.dataset
+
+  - name: table
+    value:
+      kind: ContextVariableReference
+      name: GetEmployeeAssets.table

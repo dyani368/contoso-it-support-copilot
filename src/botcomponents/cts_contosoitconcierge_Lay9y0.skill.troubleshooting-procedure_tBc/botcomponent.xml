@@ -1,0 +1,11 @@
+<botcomponent schemaname="cts_contosoitconcierge_Lay9y0.skill.troubleshooting-procedure_tBc">
+  <componenttype>9</componenttype>
+  <description>Call this when a user states an IT issue and requests troubleshooting help. It provides step-by-step procedure for diagnosing and resolving IT issues, including escalation with a ticket summary.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>troubleshooting-procedure</name>
+  <parentbotid>
+    <schemaname>cts_contosoitconcierge_Lay9y0</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

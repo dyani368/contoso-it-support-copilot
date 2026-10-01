@@ -1,0 +1,10 @@
+<botcomponent schemaname="cts_contosoitconcierge_Lay9y0.tool.SendaDeviceRequestemail_amX">
+  <componenttype>9</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>Send a Device Request email</name>
+  <parentbotid>
+    <schemaname>cts_contosoitconcierge_Lay9y0</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

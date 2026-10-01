@@ -1,0 +1,11 @@
+<botcomponent schemaname="cts_contosoitconcierge_Lay9y0.tool.Getitems_5e9">
+  <componenttype>9</componenttype>
+  <description>Gets items from a SharePoint list.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Get Employee Assets</name>
+  <parentbotid>
+    <schemaname>cts_contosoitconcierge_Lay9y0</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

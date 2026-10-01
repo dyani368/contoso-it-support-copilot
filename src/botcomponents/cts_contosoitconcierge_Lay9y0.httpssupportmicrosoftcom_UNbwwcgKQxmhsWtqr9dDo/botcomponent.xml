@@ -1,0 +1,11 @@
+<botcomponent schemaname="cts_contosoitconcierge_Lay9y0.httpssupportmicrosoftcom_UNbwwcgKQxmhsWtqr9dDo">
+  <componenttype>16</componenttype>
+  <description>This knowledge source searches information on the web found in https://support.microsoft.com website</description>
+  <iscustomizable>0</iscustomizable>
+  <name>https://support.microsoft.com</name>
+  <parentbotid>
+    <schemaname>cts_contosoitconcierge_Lay9y0</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

@@ -1,0 +1,4 @@
+kind: AgentVariable
+name: GetEmployeeAssets.table
+type: "{\"type\":\"string\",\"title\":\"List Name\",\"x-ms-dynamic-list\":{\"operationId\":\"GetTables\",\"parameters\":{\"dataset\":{\"parameterReference\":\"dataset\",\"required\":true}},\"itemsPath\":\"value\",\"itemValuePath\":\"Name\",\"itemTitlePath\":\"DisplayName\"},\"description\":\"SharePoint list name\",\"minLength\":1,\"x-ms-property-name-alias\":\"table\"}"
+defaultValue: b68a42f6-72fe-4978-a295-ebcefee1e7c5

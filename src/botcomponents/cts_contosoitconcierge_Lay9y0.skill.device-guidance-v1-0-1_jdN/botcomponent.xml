@@ -1,0 +1,11 @@
+<botcomponent schemaname="cts_contosoitconcierge_Lay9y0.skill.device-guidance-v1-0-1_jdN">
+  <componenttype>9</componenttype>
+  <description>Helps employees identify available device options based on their needs, using the `Get Employee Assets` tool.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>device-guidance-v1-0-4</name>
+  <parentbotid>
+    <schemaname>cts_contosoitconcierge_Lay9y0</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

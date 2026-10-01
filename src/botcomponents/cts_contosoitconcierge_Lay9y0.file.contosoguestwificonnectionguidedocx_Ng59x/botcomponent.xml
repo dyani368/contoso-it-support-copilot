@@ -1,0 +1,12 @@
+<botcomponent schemaname="cts_contosoitconcierge_Lay9y0.file.contosoguestwificonnectionguidedocx_Ng59x">
+  <componenttype>14</componenttype>
+  <description>This knowledge source searches information contained in Contoso_Guest_WiFi_Connection_Guide.docx</description>
+  <filedata mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document">Contoso_Guest_WiFi_Connection_Guide.docx</filedata>
+  <iscustomizable>0</iscustomizable>
+  <name>Contoso_Guest_WiFi_Connection_Guide.docx</name>
+  <parentbotid>
+    <schemaname>cts_contosoitconcierge_Lay9y0</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

@@ -1,0 +1,4 @@
+kind: AgentVariable
+name: GetEmployeeAssets.dataset
+type: "{\"type\":\"string\",\"title\":\"Site Address\",\"x-ms-dynamic-list\":{\"operationId\":\"GetDataSets\",\"parameters\":{},\"itemsPath\":\"value\",\"itemValuePath\":\"Name\",\"itemTitlePath\":\"DisplayName\"},\"description\":\"Example: https://contoso.sharepoint.com/sites/sitename\",\"minLength\":1,\"x-ms-property-name-alias\":\"dataset\"}"
+defaultValue: https://dyaneshwartesting.sharepoint.com/sites/DyaneshwarIT

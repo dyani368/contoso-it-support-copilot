@@ -1,0 +1,10 @@
+<botcomponent schemaname="cts_contosoitconcierge_Lay9y0.var.GetEmployeeAssets.dataset">
+  <componenttype>12</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>Dyaneshwar IT - https://dyaneshwartesting.sharepoint.com/sites/DyaneshwarIT</name>
+  <parentbotid>
+    <schemaname>cts_contosoitconcierge_Lay9y0</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

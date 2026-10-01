@@ -1,0 +1,4 @@
+kind: KnowledgeSourceConfiguration
+source:
+  kind: SharePointKnowledgeSource
+  siteUrl: https://dyaneshwartesting.sharepoint.com/sites/DyaneshwarIT/SitePages/ITHelpdeskHome.aspx

@@ -1,0 +1,10 @@
+<botcomponent schemaname="cts_contosoitconcierge_Lay9y0.var.GetEmployeeAssets.table">
+  <componenttype>12</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>EmployeeAssets</name>
+  <parentbotid>
+    <schemaname>cts_contosoitconcierge_Lay9y0</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

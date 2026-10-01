@@ -1,0 +1,5 @@
+<botcomponent_workflowset>
+  <botcomponent_workflow botcomponentid.schemaname="cts_contosoitconcierge_Lay9y0.tool.SendaDeviceRequestemail_amX" workflowid.workflowid="625ac674-7d13-2184-4d44-fb6c6d48c11c">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_workflow>
+</botcomponent_workflowset>

@@ -1,0 +1,11 @@
+<botcomponent schemaname="cts_contosoitconcierge_Lay9y0.ITHelpdeskHome_yF9uiFk7OgC1F_pPFks0Q">
+  <componenttype>16</componenttype>
+  <description>This knowledge source provides information found in ITHelpdeskHome SharePoint.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>ITHelpdeskHome</name>
+  <parentbotid>
+    <schemaname>cts_contosoitconcierge_Lay9y0</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

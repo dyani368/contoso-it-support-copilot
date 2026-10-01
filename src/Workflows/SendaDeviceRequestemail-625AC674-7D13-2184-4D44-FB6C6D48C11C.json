@@ -1,0 +1,892 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_office365": {
+        "api": {
+          "name": "shared_office365"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedoffice365_afc63d82"
+        },
+        "runtimeSource": "invoker",
+        "connectionName": "shared-office365-a01a5015-243a-4b85-8cf4-ca0541508a2d"
+      },
+      "shared_sharepointonline-1": {
+        "api": {
+          "name": "shared_sharepointonline"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedsharepointonline_0ea1add4"
+        },
+        "runtimeSource": "invoker",
+        "connectionName": "67861e9b9a94424fb0fc829aad602e5c"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "Skills",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "sharepointItemId",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true,
+                  "description": "The ID of the SharePoint list item to retrieve"
+                },
+                "text_1": {
+                  "title": "additionalComment",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true,
+                  "description": "Additional comment from the requestor"
+                },
+                "text_2": {
+                  "title": "requestorName",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true,
+                  "description": "Name of the requestor"
+                }
+              },
+              "required": [
+                "text",
+                "text_1",
+                "text_2"
+              ]
+            }
+          },
+          "metadata": {
+            "associatedData": {
+              "graph": {
+                "name": "Send a Device Request email",
+                "nodes": [
+                  {
+                    "id": "start-0bc4f156-bc43-459c-9b23-78057e1d0007",
+                    "name": "When an agent calls the flow",
+                    "type": "start",
+                    "version": 1,
+                    "position": {
+                      "x": 250,
+                      "y": 0
+                    },
+                    "data": {
+                      "config": {
+                        "triggerType": "connector",
+                        "connector": {
+                          "apiName": "Skills",
+                          "operationName": "When_an_agent_calls_the_flow",
+                          "displayName": "When an agent calls the flow",
+                          "kind": "Skills",
+                          "inputs": {
+                            "schema": {
+                              "type": "object",
+                              "properties": {
+                                "text": {
+                                  "title": "sharepointItemId",
+                                  "type": "string",
+                                  "x-ms-content-hint": "TEXT",
+                                  "x-ms-dynamically-added": true,
+                                  "description": "The ID of the SharePoint list item to retrieve"
+                                },
+                                "text_1": {
+                                  "title": "additionalComment",
+                                  "type": "string",
+                                  "x-ms-content-hint": "TEXT",
+                                  "x-ms-dynamically-added": true,
+                                  "description": "Additional comment from the requestor"
+                                },
+                                "text_2": {
+                                  "title": "requestorName",
+                                  "type": "string",
+                                  "x-ms-content-hint": "TEXT",
+                                  "x-ms-dynamically-added": true,
+                                  "description": "Name of the requestor"
+                                }
+                              },
+                              "required": [
+                                "text",
+                                "text_1",
+                                "text_2"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "outcomes": [
+                        {
+                          "id": "default",
+                          "label": "Default",
+                          "outcomeSchema": {
+                            "type": "object",
+                            "description": "Trigger output (schema determined by connector)"
+                          }
+                        }
+                      ]
+                    },
+                    "measured": {
+                      "width": 261,
+                      "height": 66
+                    }
+                  },
+                  {
+                    "id": "builtinFunction-707a75c6-2461-4348-a914-e99a110d3757",
+                    "name": "Respond to the agent",
+                    "type": "builtinFunction",
+                    "version": 1,
+                    "position": {
+                      "x": 1323,
+                      "y": 0
+                    },
+                    "data": {
+                      "config": {
+                        "operationId": "response",
+                        "operationName": "response",
+                        "displayName": "Respond to the agent",
+                        "category": "request",
+                        "categoryDisplayName": "Request",
+                        "iconUri": "",
+                        "brandColor": "",
+                        "parameters": {
+                          "schema": {
+                            "type": "object",
+                            "properties": {
+                              "text": {
+                                "title": "AssetName",
+                                "type": "string",
+                                "x-ms-content-hint": "TEXT",
+                                "x-ms-dynamically-added": true
+                              }
+                            },
+                            "required": [
+                              "text"
+                            ]
+                          },
+                          "body": {
+                            "text": "@{outputs('connector-d732d157-9820-41c7-b1a8-88b2799c6778')?['body/AssetName']}"
+                          }
+                        },
+                        "description": "Respond to the calling agent with typed outputs.",
+                        "kind": "Skills"
+                      },
+                      "outcomes": [
+                        {
+                          "id": "default",
+                          "label": "Default",
+                          "outcomeSchema": {
+                            "type": "object",
+                            "description": "Function output"
+                          }
+                        }
+                      ]
+                    },
+                    "measured": {
+                      "width": 240,
+                      "height": 66
+                    }
+                  },
+                  {
+                    "id": "connector-d732d157-9820-41c7-b1a8-88b2799c6778",
+                    "name": "Get Device",
+                    "type": "connector",
+                    "version": 1,
+                    "position": {
+                      "x": 587,
+                      "y": 0
+                    },
+                    "data": {
+                      "config": {
+                        "apiName": "shared_sharepointonline",
+                        "displayName": "SharePoint",
+                        "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1827/1.0.1827.4913/sharepointonline/icon.png",
+                        "brandColor": "",
+                        "operationName": "GetItem",
+                        "operationType": "OpenApiConnection",
+                        "parametersSchema": {
+                          "type": "object",
+                          "properties": {
+                            "dataset": {
+                              "type": "string",
+                              "title": "Site Address",
+                              "x-ms-dynamic-list": {
+                                "operationId": "GetDataSets",
+                                "parameters": {},
+                                "itemsPath": "value",
+                                "itemValuePath": "Name",
+                                "itemTitlePath": "DisplayName"
+                              },
+                              "description": "Example: https://contoso.sharepoint.com/sites/sitename",
+                              "minLength": 1,
+                              "x-ms-property-name-alias": "dataset"
+                            },
+                            "table": {
+                              "type": "string",
+                              "title": "List Name",
+                              "x-ms-dynamic-list": {
+                                "operationId": "GetTables",
+                                "parameters": {
+                                  "dataset": {
+                                    "parameterReference": "dataset",
+                                    "required": true
+                                  }
+                                },
+                                "itemsPath": "value",
+                                "itemValuePath": "Name",
+                                "itemTitlePath": "DisplayName"
+                              },
+                              "description": "SharePoint list name",
+                              "minLength": 1,
+                              "x-ms-property-name-alias": "table"
+                            },
+                            "id": {
+                              "type": "integer",
+                              "title": "Id",
+                              "format": "int64",
+                              "description": "Unique identifier of item to be retrieved",
+                              "x-ms-property-name-alias": "id"
+                            },
+                            "view": {
+                              "type": "string",
+                              "title": "Limit Columns by View",
+                              "x-ms-dynamic-list": {
+                                "operationId": "GetTableViews",
+                                "parameters": {
+                                  "dataset": {
+                                    "parameterReference": "dataset",
+                                    "required": true
+                                  },
+                                  "table": {
+                                    "parameterReference": "table",
+                                    "required": true
+                                  }
+                                },
+                                "itemValuePath": "Name",
+                                "itemTitlePath": "DisplayName"
+                              },
+                              "description": "Avoid column threshold issues by only using columns defined in a view",
+                              "x-ms-visibility": "advanced",
+                              "x-ms-property-name-alias": "view"
+                            }
+                          },
+                          "required": [
+                            "dataset",
+                            "id",
+                            "table"
+                          ]
+                        },
+                        "connectionName": "shared_sharepointonline-1",
+                        "parameters": {
+                          "dataset": "https://dyaneshwartesting.sharepoint.com/sites/DyaneshwarIT",
+                          "table": "b68a42f6-72fe-4978-a295-ebcefee1e7c5",
+                          "id": "@triggerOutputs()?['body/text']",
+                          "view": "38f57fd8-1317-49cf-897c-d99c31f3cb57"
+                        }
+                      },
+                      "outcomes": [
+                        {
+                          "id": "default",
+                          "label": "Default",
+                          "outcomeSchema": {
+                            "type": "object",
+                            "properties": {
+                              "ID": {
+                                "type": "integer",
+                                "title": "ID",
+                                "readOnly": true,
+                                "format": "int64",
+                                "description": "List item id. Use this value for specifying the item to act on in other list related actions.",
+                                "x-ms-capabilities": {
+                                  "filterFunctions": [
+                                    "eq"
+                                  ]
+                                },
+                                "x-ms-property-name-alias": "body/ID"
+                              },
+                              "Title": {
+                                "type": "string",
+                                "title": "Title",
+                                "readOnly": false,
+                                "maxLength": 255,
+                                "x-ms-capabilities": {
+                                  "filterFunctions": [
+                                    "eq",
+                                    "startswith"
+                                  ]
+                                },
+                                "x-ms-property-name-alias": "body/Title"
+                              },
+                              "AssetName": {
+                                "type": "string",
+                                "title": "Asset Name",
+                                "readOnly": false,
+                                "maxLength": 255,
+                                "x-ms-capabilities": {
+                                  "filterFunctions": [
+                                    "eq",
+                                    "startswith"
+                                  ]
+                                },
+                                "x-ms-property-name-alias": "body/AssetName"
+                              },
+                              "DeviceType": {
+                                "type": "string",
+                                "title": " Device Type",
+                                "readOnly": false,
+                                "maxLength": 255,
+                                "x-ms-capabilities": {
+                                  "filterFunctions": [
+                                    "eq",
+                                    "startswith"
+                                  ]
+                                },
+                                "x-ms-property-name-alias": "body/DeviceType"
+                              },
+                              "Status": {
+                                "type": "string",
+                                "title": " Status",
+                                "readOnly": false,
+                                "maxLength": 255,
+                                "x-ms-capabilities": {
+                                  "filterFunctions": [
+                                    "eq",
+                                    "startswith"
+                                  ]
+                                },
+                                "x-ms-property-name-alias": "body/Status"
+                              },
+                              "RAM": {
+                                "type": "string",
+                                "title": "RAM",
+                                "readOnly": false,
+                                "maxLength": 255,
+                                "x-ms-capabilities": {
+                                  "filterFunctions": [
+                                    "eq",
+                                    "startswith"
+                                  ]
+                                },
+                                "x-ms-property-name-alias": "body/RAM"
+                              },
+                              "{Identifier}": {
+                                "type": "string",
+                                "title": "Identifier",
+                                "readOnly": true,
+                                "description": "Value that can be used in file related actions for selecting a file.",
+                                "x-ms-property-name-alias": "body/{Identifier}"
+                              },
+                              "{IsFolder}": {
+                                "type": "boolean",
+                                "title": "Is folder",
+                                "readOnly": true,
+                                "description": "True when the item is a folder, false otherwise.",
+                                "x-ms-property-name-alias": "body/{IsFolder}"
+                              },
+                              "{Thumbnail}": {
+                                "type": "object",
+                                "title": "Thumbnail",
+                                "properties": {
+                                  "Small": {
+                                    "type": "string",
+                                    "title": "Small",
+                                    "readOnly": true,
+                                    "description": "URL to the small, highly compressed size thumbnail of the item, if available.",
+                                    "x-ms-property-name-alias": "body/{Thumbnail}/Small"
+                                  },
+                                  "Medium": {
+                                    "type": "string",
+                                    "title": "Medium",
+                                    "readOnly": true,
+                                    "description": "URL to the standard size thumbnail of the item, if available.",
+                                    "x-ms-property-name-alias": "body/{Thumbnail}/Medium"
+                                  },
+                                  "Large": {
+                                    "type": "string",
+                                    "title": "Large",
+                                    "readOnly": true,
+                                    "description": "URL to the largest size thumbnail of the item, if available.",
+                                    "x-ms-property-name-alias": "body/{Thumbnail}/Large"
+                                  }
+                                },
+                                "required": [],
+                                "readOnly": true,
+                                "description": "URL to the thumbnails of the item in 3 different sizes, if available.",
+                                "x-ms-property-name-alias": "body/{Thumbnail}"
+                              },
+                              "{Link}": {
+                                "type": "string",
+                                "title": "Link to item",
+                                "readOnly": true,
+                                "description": "Link that can be used to get to the file or list item. Only people with permissions to the item will be able to open the link.",
+                                "x-ms-property-name-alias": "body/{Link}"
+                              },
+                              "{Name}": {
+                                "type": "string",
+                                "title": "Name",
+                                "readOnly": true,
+                                "description": "File name of the item in document libraries, display name of the item in lists.",
+                                "x-ms-property-name-alias": "body/{Name}"
+                              },
+                              "{FilenameWithExtension}": {
+                                "type": "string",
+                                "title": "File name with extension",
+                                "readOnly": true,
+                                "description": "For libraries, returns file name including extension. For lists, returns the title property.",
+                                "x-ms-property-name-alias": "body/{FilenameWithExtension}"
+                              },
+                              "{Path}": {
+                                "type": "string",
+                                "title": "Folder path",
+                                "readOnly": true,
+                                "description": "Path to the folder the item is in, relative to the site address.",
+                                "x-ms-property-name-alias": "body/{Path}"
+                              },
+                              "{FullPath}": {
+                                "type": "string",
+                                "title": "Full Path",
+                                "readOnly": true,
+                                "description": "Full path of an item or a folder or a file",
+                                "x-ms-property-name-alias": "body/{FullPath}"
+                              },
+                              "{ModerationStatus}": {
+                                "type": "string",
+                                "title": "Content approval status",
+                                "readOnly": true,
+                                "description": "The content approval status. It can be one of the following: Draft, Pending, Approved, or Rejected",
+                                "x-ms-property-name-alias": "body/{ModerationStatus}"
+                              },
+                              "{ModerationComment}": {
+                                "type": "string",
+                                "title": "Comments associated with the content approval of this list item",
+                                "readOnly": true,
+                                "description": "The comments associated with moderation of the list item.",
+                                "x-ms-property-name-alias": "body/{ModerationComment}"
+                              },
+                              "{ContentType}": {
+                                "type": "object",
+                                "title": "Content type",
+                                "properties": {
+                                  "Id": {
+                                    "type": "string",
+                                    "title": "Id",
+                                    "x-ms-dynamic-list": {
+                                      "operationId": "GetEntityValues",
+                                      "parameters": {
+                                        "dataset": {
+                                          "parameterReference": "dataset",
+                                          "required": true
+                                        },
+                                        "table": {
+                                          "parameterReference": "table",
+                                          "required": true
+                                        },
+                                        "id": {
+                                          "value": "4651e8f2-38c9-4ad0-8def-41f743f76f30"
+                                        }
+                                      },
+                                      "itemsPath": "value",
+                                      "itemValuePath": "Id",
+                                      "itemTitlePath": "Name"
+                                    },
+                                    "x-ms-property-name-alias": "body/{ContentType}/Id"
+                                  },
+                                  "Name": {
+                                    "type": "string",
+                                    "title": "Name",
+                                    "readOnly": true,
+                                    "x-ms-property-name-alias": "body/{ContentType}/Name"
+                                  }
+                                },
+                                "required": [],
+                                "readOnly": false,
+                                "description": "Name of the Content type of the item.",
+                                "x-ms-property-name-alias": "body/{ContentType}"
+                              },
+                              "{HasAttachments}": {
+                                "type": "boolean",
+                                "title": "Has attachments",
+                                "readOnly": true,
+                                "description": "Indicates the presence of attachments in the item.",
+                                "x-ms-property-name-alias": "body/{HasAttachments}"
+                              },
+                              "{VersionNumber}": {
+                                "type": "string",
+                                "title": "Version number",
+                                "readOnly": true,
+                                "description": "The version number of the file or the list item.",
+                                "x-ms-property-name-alias": "body/{VersionNumber}"
+                              },
+                              "{TriggerWindowStartToken}": {
+                                "type": "string",
+                                "title": "Trigger Window Start Token",
+                                "readOnly": true,
+                                "description": "A token expressing the time of the last flow check. Use this if you want to check if one or more columns were modified since the last flow check.",
+                                "x-ms-property-name-alias": "body/{TriggerWindowStartToken}"
+                              },
+                              "{TriggerWindowEndToken}": {
+                                "type": "string",
+                                "title": "Trigger Window End Token",
+                                "readOnly": true,
+                                "description": "A token expressing the time of the current flow check. Use this if you want to check if one or more columns were modified since the last flow check.",
+                                "x-ms-property-name-alias": "body/{TriggerWindowEndToken}"
+                              }
+                            },
+                            "required": []
+                          }
+                        }
+                      ]
+                    },
+                    "measured": {
+                      "width": 240,
+                      "height": 66
+                    },
+                    "selected": true
+                  },
+                  {
+                    "id": "connector-77113edc-e57e-4cce-a3f6-dfed3c492c03",
+                    "name": "Send an email to manager",
+                    "type": "connector",
+                    "version": 1,
+                    "position": {
+                      "x": 903,
+                      "y": 0
+                    },
+                    "data": {
+                      "config": {
+                        "apiName": "shared_office365",
+                        "displayName": "Office 365 Outlook",
+                        "iconUri": "https://res-1.cdn.office.net/files/fabric-cdn-prod_20251008.001/assets/brand-icons/product/svg/outlook_48x1.svg",
+                        "brandColor": "#0078D4",
+                        "operationName": "SendEmailV2",
+                        "connectionName": "shared_office365",
+                        "operationType": "OpenApiConnection",
+                        "parametersSchema": {
+                          "type": "object",
+                          "properties": {
+                            "emailMessage": {
+                              "type": "object",
+                              "title": "Email",
+                              "properties": {
+                                "To": {
+                                  "type": "string",
+                                  "title": "To",
+                                  "x-ms-dynamic-list": {
+                                    "builtInOperation": "AadGraph.GetUsers",
+                                    "parameters": {},
+                                    "itemValuePath": "mail"
+                                  },
+                                  "format": "email",
+                                  "description": "Specify email addresses separated by semicolons like someone@contoso.com",
+                                  "x-ms-property-name-alias": "emailMessage/To"
+                                },
+                                "Subject": {
+                                  "type": "string",
+                                  "title": "Subject",
+                                  "description": "Specify the subject of the mail",
+                                  "x-ms-property-name-alias": "emailMessage/Subject"
+                                },
+                                "Body": {
+                                  "type": "string",
+                                  "title": "Body",
+                                  "format": "html",
+                                  "description": "Specify the body of the mail",
+                                  "x-ms-property-name-alias": "emailMessage/Body"
+                                },
+                                "From": {
+                                  "type": "string",
+                                  "title": "From (Send as)",
+                                  "format": "email",
+                                  "description": "Email address to send mail from (requires \"Send as\" or \"Send on behalf of\" permission for that mailbox). For more info on granting permissions please refer https://docs.microsoft.com/office365/admin/manage/send-email-as-distribution-list",
+                                  "x-ms-visibility": "advanced",
+                                  "x-ms-property-name-alias": "emailMessage/From"
+                                },
+                                "Cc": {
+                                  "type": "string",
+                                  "title": "CC",
+                                  "x-ms-dynamic-list": {
+                                    "builtInOperation": "AadGraph.GetUsers",
+                                    "parameters": {},
+                                    "itemValuePath": "mail"
+                                  },
+                                  "format": "email",
+                                  "description": "Specify email addresses separated by semicolons like someone@contoso.com",
+                                  "x-ms-visibility": "advanced",
+                                  "x-ms-property-name-alias": "emailMessage/Cc"
+                                },
+                                "Bcc": {
+                                  "type": "string",
+                                  "title": "BCC",
+                                  "x-ms-dynamic-list": {
+                                    "builtInOperation": "AadGraph.GetUsers",
+                                    "parameters": {},
+                                    "itemValuePath": "mail"
+                                  },
+                                  "format": "email",
+                                  "description": "Specify email addresses separated by semicolons like someone@contoso.com",
+                                  "x-ms-visibility": "advanced",
+                                  "x-ms-property-name-alias": "emailMessage/Bcc"
+                                },
+                                "Attachments": {
+                                  "type": "array",
+                                  "title": "Attachments",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "Name": {
+                                        "type": "string",
+                                        "title": "Name",
+                                        "description": "Attachment name",
+                                        "x-ms-property-name-alias": "Name"
+                                      },
+                                      "ContentBytes": {
+                                        "type": "string",
+                                        "title": "Content",
+                                        "format": "byte",
+                                        "description": "Attachment content",
+                                        "x-ms-property-name-alias": "ContentBytes"
+                                      }
+                                    },
+                                    "required": [
+                                      "ContentBytes",
+                                      "Name"
+                                    ],
+                                    "description": "Attachment"
+                                  },
+                                  "description": "Attachments",
+                                  "x-ms-visibility": "advanced",
+                                  "x-ms-property-name-alias": "emailMessage/Attachments"
+                                },
+                                "Sensitivity": {
+                                  "type": "string",
+                                  "title": "Sensitivity",
+                                  "x-ms-dynamic-list": {
+                                    "operationId": "GetSensitivityLabels",
+                                    "parameters": {},
+                                    "itemValuePath": "Id",
+                                    "itemTitlePath": "DisplayName"
+                                  },
+                                  "description": "Sensitivity",
+                                  "x-ms-visibility": "important",
+                                  "x-ms-property-name-alias": "emailMessage/Sensitivity"
+                                },
+                                "ReplyTo": {
+                                  "type": "string",
+                                  "title": "Reply To",
+                                  "format": "email",
+                                  "description": "The email addresses to use when replying",
+                                  "x-ms-visibility": "advanced",
+                                  "x-ms-property-name-alias": "emailMessage/ReplyTo"
+                                },
+                                "Importance": {
+                                  "type": "string",
+                                  "title": "Importance",
+                                  "description": "Importance",
+                                  "default": "Normal",
+                                  "enum": [
+                                    "Low",
+                                    "Normal",
+                                    "High"
+                                  ],
+                                  "x-ms-visibility": "advanced",
+                                  "x-ms-property-name-alias": "emailMessage/Importance"
+                                }
+                              },
+                              "required": [
+                                "Body",
+                                "Subject",
+                                "To"
+                              ],
+                              "description": "Email.",
+                              "x-ms-property-name-alias": "emailMessage"
+                            }
+                          },
+                          "required": [
+                            "emailMessage"
+                          ]
+                        },
+                        "parameters": {
+                          "emailMessage/Body": "<div>Hi,</div><div><br></div><div>New device requested from:&nbsp;@{triggerOutputs()?['body/text_2']}​</div><div><br></div><div>Manufacturer:&nbsp;@{outputs('connector-d732d157-9820-41c7-b1a8-88b2799c6778')?['body/AssetName']}​</div><div>Model:&nbsp;@{outputs('connector-d732d157-9820-41c7-b1a8-88b2799c6778')?['body/DeviceType']}​</div><div><a href=\"@{outputs('connector-d732d157-9820-41c7-b1a8-88b2799c6778')?['body/{Link}']}\">Link to item in SharePoint</a>​</div><div>Additional comment:&nbsp;@{triggerOutputs()?['body/text_1']}​</div><div><b><i><br></i></b></div><div><b><i>This is an automated email from Contoso IT Concierge agent</i></b></div>",
+                          "emailMessage/To": "dyanhawal@gmail.com",
+                          "emailMessage/Subject": "Request type: new device",
+                          "emailMessage/Sensitivity": "General\\All Customers (unrestricted)"
+                        }
+                      },
+                      "outcomes": [
+                        {
+                          "id": "default",
+                          "label": "Default",
+                          "outcomeSchema": {
+                            "type": "object",
+                            "properties": {}
+                          }
+                        }
+                      ]
+                    },
+                    "measured": {
+                      "width": 244,
+                      "height": 66
+                    }
+                  }
+                ],
+                "edges": [
+                  {
+                    "id": "edge-start-0bc4f156-bc43-459c-9b23-78057e1d0007-connector-d732d157-9820-41c7-b1a8-88b2799c6778",
+                    "source": "start-0bc4f156-bc43-459c-9b23-78057e1d0007",
+                    "target": "connector-d732d157-9820-41c7-b1a8-88b2799c6778"
+                  },
+                  {
+                    "id": "edge-connector-77113edc-e57e-4cce-a3f6-dfed3c492c03-builtinFunction-707a75c6-2461-4348-a914-e99a110d3757",
+                    "source": "connector-77113edc-e57e-4cce-a3f6-dfed3c492c03",
+                    "target": "builtinFunction-707a75c6-2461-4348-a914-e99a110d3757"
+                  },
+                  {
+                    "id": "edge-connector-d732d157-9820-41c7-b1a8-88b2799c6778-connector-77113edc-e57e-4cce-a3f6-dfed3c492c03",
+                    "source": "connector-d732d157-9820-41c7-b1a8-88b2799c6778",
+                    "target": "connector-77113edc-e57e-4cce-a3f6-dfed3c492c03"
+                  }
+                ],
+                "connectionReferences": {
+                  "shared_office365": {
+                    "api": {
+                      "name": "shared_office365"
+                    },
+                    "connection": {
+                      "connectionReferenceLogicalName": "new_sharedoffice365_afc63d82"
+                    },
+                    "runtimeSource": "invoker",
+                    "connectionName": "shared-office365-a01a5015-243a-4b85-8cf4-ca0541508a2d"
+                  },
+                  "shared_sharepointonline-1": {
+                    "api": {
+                      "name": "shared_sharepointonline"
+                    },
+                    "connection": {
+                      "connectionReferenceLogicalName": "new_sharedsharepointonline_0ea1add4"
+                    },
+                    "runtimeSource": "invoker",
+                    "connectionName": "67861e9b9a94424fb0fc829aad602e5c"
+                  }
+                }
+              },
+              "nodeActionMapping": {
+                "connector-d732d157-9820-41c7-b1a8-88b2799c6778": [
+                  "Get_Device"
+                ],
+                "connector-77113edc-e57e-4cce-a3f6-dfed3c492c03": [
+                  "Send_an_email_to_manager"
+                ],
+                "builtinFunction-707a75c6-2461-4348-a914-e99a110d3757": [
+                  "Respond_to_the_agent"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "actions": {
+        "Get_Device": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "dataset": "https://dyaneshwartesting.sharepoint.com/sites/DyaneshwarIT",
+              "table": "b68a42f6-72fe-4978-a295-ebcefee1e7c5",
+              "id": "@triggerOutputs()?['body/text']",
+              "view": "38f57fd8-1317-49cf-897c-d99c31f3cb57"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+              "connectionName": "shared_sharepointonline-1",
+              "operationId": "GetItem"
+            }
+          },
+          "metadata": {
+            "description": "Get Device",
+            "nodeId": "connector-d732d157-9820-41c7-b1a8-88b2799c6778"
+          }
+        },
+        "Send_an_email_to_manager": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "emailMessage/Body": "<div>Hi,</div><div><br></div><div>New device requested from:&nbsp;@{triggerOutputs()?['body/text_2']}​</div><div><br></div><div>Manufacturer:&nbsp;@{outputs('Get_Device')?['body/AssetName']}​</div><div>Model:&nbsp;@{outputs('Get_Device')?['body/DeviceType']}​</div><div><a href=\"@{outputs('Get_Device')?['body/{Link}']}\">Link to item in SharePoint</a>​</div><div>Additional comment:&nbsp;@{triggerOutputs()?['body/text_1']}​</div><div><b><i><br></i></b></div><div><b><i>This is an automated email from Contoso IT Concierge agent</i></b></div>",
+              "emailMessage/To": "dyanhawal@gmail.com",
+              "emailMessage/Subject": "Request type: new device",
+              "emailMessage/Sensitivity": "General\\All Customers (unrestricted)"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
+              "connectionName": "shared_office365",
+              "operationId": "SendEmailV2"
+            }
+          },
+          "runAfter": {
+            "Get_Device": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "description": "Send an email to manager",
+            "nodeId": "connector-77113edc-e57e-4cce-a3f6-dfed3c492c03"
+          }
+        },
+        "Respond_to_the_agent": {
+          "type": "Response",
+          "kind": "Skills",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "AssetName",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                }
+              },
+              "required": [
+                "text"
+              ]
+            },
+            "statusCode": 200,
+            "body": {
+              "text": "@{outputs('Get_Device')?['body/AssetName']}"
+            }
+          },
+          "runAfter": {
+            "Send_an_email_to_manager": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "description": "Respond to the agent",
+            "nodeId": "builtinFunction-707a75c6-2461-4348-a914-e99a110d3757"
+          }
+        }
+      },
+      "outputs": {},
+      "metadata": {
+        "telemetryMetadata": {
+          "creationSource": "WorkflowDesigner",
+          "modifiedSources": "WorkflowDesigner"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

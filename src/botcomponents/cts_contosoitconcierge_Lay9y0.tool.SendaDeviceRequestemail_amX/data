@@ -1,0 +1,23 @@
+kind: WorkflowTool
+workflowId: 625ac674-7d13-2184-4d44-fb6c6d48c11c
+toolInputs:
+  - name: text
+    displayName: sharepointItemId
+    description: The ID of the SharePoint list item to retrieve
+
+  - name: text_1
+    displayName: additionalComment
+    description: Additional comment from the requestor
+
+  - name: text_2
+    displayName: requestorName
+    description: Name of the requestor
+
+toolOutputs:
+  - name: text
+    displayName: AssetName
+
+connectionProperties:
+  $kind: ConnectionProperties
+  diagnostics:
+  mode: Invoker
