@@ -5,6 +5,7 @@
 [![Power Automate](https://img.shields.io/badge/Automation-Power%20Automate-0066FF?logo=powerautomate)](https://powerautomate.microsoft.com/)
 [![Git & GitHub](https://img.shields.io/badge/ALM-Git%20Version%20Control-F05032?logo=git)](https://git-scm.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Power Platform ALM](https://github.com/dyani368/contoso-it-support-copilot/actions/workflows/alm-deploy.yml/badge.svg)](https://github.com/dyani368/contoso-it-support-copilot/actions/workflows/alm-deploy.yml)
 
 An enterprise-grade IT Support & Device Request Agent built with **Microsoft Copilot Studio** and **Power Automate**, managed end-to-end via **Power Platform CLI (`pac`)** for source control, automated packaging, and multi-environment Application Lifecycle Management (ALM).
 
