@@ -1,0 +1,20 @@
+# Power Platform & Copilot Studio ALM gitignore
+*.zip
+*.cdsproj.user
+bin/
+obj/
+dist/
+solutions/
+
+# Local OS & Editor files
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# Local lab artifacts (not part of unpacked solution)
+device-guidance-*/
+employee-assets/
+it-troubleshooting-procedure/
+WordFile/
