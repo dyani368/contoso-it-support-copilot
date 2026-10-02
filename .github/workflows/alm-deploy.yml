@@ -17,16 +17,15 @@ jobs:
       - name: Install Power Platform Tools
         uses: microsoft/powerplatform-actions/actions-install@v1
 
-      - name: Create Artifacts Directory
-        shell: pwsh
-        run: New-Item -ItemType Directory -Force -Path dist
-
-      - name: Pack Solution via pac CLI
-        shell: pwsh
-        run: pac solution pack --zipfile dist/ContosoITConciergeAgent.zip --folder src
+      - name: Pack Solution (Build Solution Package)
+        uses: microsoft/powerplatform-actions/pack-solution@v1
+        with:
+          solution-file: 'ContosoITConciergeAgent.zip'
+          solution-folder: 'src'
+          solution-type: 'Unmanaged'
 
       - name: Upload Solution Artifact
         uses: actions/upload-artifact@v4
         with:
           name: packaged-solution
-          path: dist/ContosoITConciergeAgent.zip
+          path: ContosoITConciergeAgent.zip
